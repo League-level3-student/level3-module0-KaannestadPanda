@@ -25,16 +25,39 @@ System.out.println(stringArray[2]);
 		//7. make an array of 50 integers
 int[] intArray= new int[50];
 		//8. use a for loop to make every value of the integer array a random number
-for(int i = 0; i<stringArray.length;i++) {
-	
+Random ran = new Random();
+for(int i = 0; i<intArray.length;i++) {
+	intArray[i]=ran.nextInt(200);
 }
+int smallest=Integer.MAX_VALUE;
+int biggest=Integer.MIN_VALUE;
 		//9. without printing the entire array, print only the smallest number on the array
-
+//Boolean setUpped=false;
+for(int i = 0; i<intArray.length;i++) {
+//	if(setUpped==false) {
+//		smallest=intArray[i];
+//		setUpped=true;
+//	}
+	if(intArray[i]<smallest) {
+		
+	smallest=intArray[i];
+	}
+}
+System.out.println(smallest+"\n");
 		//10 print the entire array to see if step 8 was correct
-
+for(int i = 0; i<intArray.length;i++) {
+	System.out.println(intArray[i]);
+}
 		//11. print the largest number in the array.
+for(int i = 0; i<intArray.length;i++) {
+	if(intArray[i]>biggest) {
 		
+		biggest=intArray[i];
+		}
+}
+System.out.println("\n"+biggest);
 		//12. print only the last element in the array
-		
+		int last=intArray.length-1;
+		System.out.println(intArray[last]);
 	}
 }
