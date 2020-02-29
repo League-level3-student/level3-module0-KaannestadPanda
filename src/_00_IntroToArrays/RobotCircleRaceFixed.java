@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
 
-public class CircleRobotRace {
+public class RobotCircleRaceFixed {
 	// 1. make a main method
 	public static void main(String[] args) {
 
@@ -63,7 +63,7 @@ int g = ran.nextInt(49)+1;
 					
 					
 					
-					robots[i].move(intStepSize);
+					robots[i].move(i+1);
 					
 					robots[i].turn(-1);
 					
