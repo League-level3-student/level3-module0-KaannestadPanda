@@ -12,24 +12,32 @@ public class RobotCircleRaceFixed {
 
 		String askX=JOptionPane.showInputDialog("Starting X for first robot?");
 		String askY=JOptionPane.showInputDialog("Starting Y for first robot?");
-		String askEndY=JOptionPane.showInputDialog("Starting Y for last robot?");
+		//String askEndY=JOptionPane.showInputDialog("Starting Y for last robot?");
 		String askRobotNumber=JOptionPane.showInputDialog("Number of robots?");
 		int startX = Integer.parseInt(askX);
 		int startY = Integer.parseInt(askY);
-		int endY = Integer.parseInt(askEndY);
+		//int endY = Integer.parseInt(askEndY);
 		int robotNumber = Integer.parseInt(askRobotNumber);
 		
 
 		// 2. create an array of 5 robots.
 		Robot[] robots = new Robot[robotNumber];
-		double verticalSpacer = (double)(endY-startY) /(robotNumber-1); 
+		 
 		
 		// 3. use a for loop to initialize the robots.
 
 		for (int i = 0; i < robots.length; i++) {
 			robots[i] = new Robot();
-			robots[i].setY(startY + (int)(verticalSpacer * i)); 
+			
+			double radius = ((i+1)*360)/(2*Math.PI);
+			
+			
+			
+			
+			robots[i].setY(startY+ (int)radius); 
 			robots[i].setX(startX);
+			
+			
 			robots[i].setSpeed(100);
 			robots[i].turn(90);
 			robots[i].miniaturize();
@@ -48,12 +56,7 @@ public class RobotCircleRaceFixed {
 
 			for (int i = 0; i < robots.length; i++) {
 				
-				double circum=2*Math.PI*(57.2957795+(verticalSpacer*i));
-				double stepSize=circum/360;
-				int intStepSize=(int)stepSize;
-				if(intStepSize==0) {
-					intStepSize=1;
-				}
+				
 				
 				robots[i].setSpeed(7000);
 int g = ran.nextInt(49)+1;
@@ -67,7 +70,7 @@ int g = ran.nextInt(49)+1;
 					
 					robots[i].turn(-1);
 					
-					if (robots[i].getX() == startX && robots[i].getY()==(startY + verticalSpacer * i)) {
+					if (robots[i].getX() == startX && robots[i].getY()==(startY)) {
 						raceOver=true;
 					
 					}
@@ -81,7 +84,7 @@ int g = ran.nextInt(49)+1;
 
 			// 7. declare that robot the winner and throw it a party!
     	for(int i = 0;i<robots.length;i++) {
-    		if(robots[i].getX() == startX && robots[i].getY()==(startY + verticalSpacer * i)) {
+    		if(robots[i].getX() == startX && robots[i].getY()==(startY)) {
     			robots[i].setSpeed(200);
     			robots[i].move(-600);
     			robots[i].move(600);
