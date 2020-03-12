@@ -53,11 +53,11 @@ for(int i = 0; i<sparks.length;i++) {
 				Random r = new Random();
 				s.xVelocity = r.nextInt(40) - 20;
 				s.yVelocity += -r.nextInt(10) - 5;
-				s.size = r.nextInt(7) + 2;
+				s.size = r.nextInt(7) + 60;
 				s.fire = true;
 			}
 			
-			if(s.y >= FireworkDisplay.HEIGHT) {
+			if(s.y >= FireworkDisplayUpdate.HEIGHT) {
 				s.dead = true;
 			}
 		}
