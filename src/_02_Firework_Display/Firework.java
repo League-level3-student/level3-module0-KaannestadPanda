@@ -18,14 +18,15 @@ public class Firework{
 	
 	public boolean dead = false;
 	
-	public Firework() {
+	public Firework(int a) {
 		//2. Initialize the Spark array to contain 100 Sparks. 
 sparks=new Spark[100];
 		
 		//3. Iterate through the sparks and initialize each one to a new Spark.
 		//   Make each spark start at the middle bottom of the screen.
 for(int i = 0; i<sparks.length;i++) {
-	sparks[i]=new Spark(750,800);
+	
+	sparks[i]=new Spark(a,800);
 }
 
 	}
@@ -33,8 +34,11 @@ for(int i = 0; i<sparks.length;i++) {
 	public void launch() {
 		//4. Iterate through the sparks and reset their x and y location
 		//   to their original starting point.
+		Random ran = new Random();
+		int ren = ran.nextInt(10000);
 		for(int i = 0; i<sparks.length;i++) {
-			sparks[i].x=750;
+			
+			sparks[i].x=ren;
 			sparks[i].y=800;
 		}
 	}
@@ -53,7 +57,7 @@ for(int i = 0; i<sparks.length;i++) {
 				Random r = new Random();
 				s.xVelocity = r.nextInt(40) - 20;
 				s.yVelocity += -r.nextInt(10) - 5;
-				s.size = r.nextInt(7) + 60;
+				s.size = r.nextInt(10) + 10;
 				s.fire = true;
 			}
 			

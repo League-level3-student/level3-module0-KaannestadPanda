@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ public class FireworkDisplayUpdate extends JPanel implements ActionListener {
 	private JPanel buttonPanel;
 	private JButton fireButton;
 	private Timer timer;
+	int ren = 750;
 	
 	ArrayList<Firework> firework= new ArrayList<Firework>();
 	
@@ -56,7 +58,11 @@ public class FireworkDisplayUpdate extends JPanel implements ActionListener {
 	
 	private void fire() {
 		fireButton.setEnabled(true);
-		firework.add(new Firework());
+		
+		Random ran = new Random();
+		int ren = ran.nextInt(1000);
+		firework.add(new Firework(ren));
+		
 		firework.get(firework.size()-1).launch();
 		
 		
@@ -75,7 +81,8 @@ public class FireworkDisplayUpdate extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		firework.add(new Firework());
+		
+		firework.add(new Firework(ren));
 		firework.get(firework.size()-1).launch();
 		
 		for(int i=0;i<firework.size();i++) {
